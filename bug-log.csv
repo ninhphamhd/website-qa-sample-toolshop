@@ -1,0 +1,42 @@
+﻿"ID","Page/Area","Title","Steps","Expected","Actual","Severity","Priority","Priority reason","Evidence","Status","Retest date"
+"BUG-06","Product page","""Add to cart"" shows an error message although the item is added","1. Open https://with-bugs.practicesoftwaretesting.com/#/product/1.
+2. Click Add to cart.","A confirmation such as ""Product added to shopping cart.""","A red message appears: ""Oeps, something went wrong."" Yet the item was added — the cart icon in the header now shows 1.","Major","Critical","Every shopper who adds an item is told it failed; expect repeat clicks, duplicate items and abandoned carts.","BUG-06_add-to-cart-shows-error_error-toast.png
+BUG-06_add-to-cart-shows-error.webm","Open","2026-10-30"
+"BUG-07","Cart","The cart shows $00.00 as every line total","1. Open https://with-bugs.practicesoftwaretesting.com/#/product/1 and click Add to cart.
+2. Open the cart with the cart icon in the header.
+3. Change the quantity to 3 and press Tab.","The line total shows $14.15 at quantity 1 and $42.45 at quantity 3.","The line total shows $00.00 at every quantity. The cart total below it is correct ($14.15, then $42.45).","Major","Critical","Every order shows $00.00 per line on the last screen before paying; shoppers can't check what they pay for.","BUG-07_cart-line-total-zero.webm","Open","2026-10-30"
+"BUG-02","Contact form","Contact form can't be sent — every subject is rejected","1. Open https://with-bugs.practicesoftwaretesting.com/#/contact.
+2. Enter First name Demo, Last name Tester, Email demo.tester@example.com.
+3. Choose the subject Webmaster.
+4. Enter a 73-character message: This is a demo message written for a QA sample report on a practice site.
+5. Click Send.","The message is sent and a confirmation appears.","""Subject is required"" appears under the Subject field — which still shows ""Webmaster"" — and nothing is sent. The same happens with every one of the 8 subjects in the list.","Major","Critical","No visitor can send a message at all; order, return and payment questions never arrive.","BUG-02_contact-form-rejects-every-subject.webm","Open","2026-10-30"
+"BUG-01","Navigation","""Home"" in the header opens the Contact page","1. Open https://with-bugs.practicesoftwaretesting.com/#/rentals.
+2. Click Home in the header.","The home page with the product list opens.","The Contact page opens (address ends in #/contact), and ""Home"" is highlighted as the current page while you are on Contact.","Major","High","Visitors who use Home to get back to the products land on the contact form instead.","BUG-01_home-link-opens-contact.webm","Open","2026-10-30"
+"BUG-13","Product page","""Add to cart"" and ""Add to favourites"" overlap on product pages","1. Open https://with-bugs.practicesoftwaretesting.com/#/product/1 on a desktop (1280 px wide).
+2. Repeat on a phone-sized screen (390 px wide).","Two separate buttons side by side, each label fully readable.","The buttons overlap by 50 px at 1280 px wide, hiding most of the ""Add to cart"" label (""Add t…""). The same happens on a phone.","Medium","High","The main button on every product page is half hidden; it still works when clicked.","BUG-13_cart-and-favourites-buttons-overlap_99-final.png
+BUG-13_cart-and-favourites-buttons-overlap-mobile_99-final.png","Open","2026-10-30"
+"BUG-11","Images & text","The shop logo and the Search icon don't load","1. Open any page, for example https://with-bugs.practicesoftwaretesting.com/#/.","The shop logo (top left) and the icon beside ""Search"" are displayed.","Both show as broken images on every page; the image they point at doesn't exist on the server (404 Not Found).","Medium","High","The logo is missing on every page; nothing stops working.","BUG-11_logo-and-search-icon-broken_99-final.png","Open","2026-10-30"
+"BUG-09","Navigation","""Chainsaws"" in the Categories menu opens a ""Page Not Found"" error","1. Open https://with-bugs.practicesoftwaretesting.com/#/.
+2. Open Categories in the header.
+3. Click Chainsaws.","The category opens with its products.","""404 Error — Page Not Found"" (#/chainsaws).","Medium","Medium","A main-menu entry leads to an error page.","BUG-09_categories-menu-chainsaws-404.webm","Open","2026-10-30"
+"BUG-03","Product list","Every sort option sorts in the opposite direction","1. Open https://with-bugs.practicesoftwaretesting.com/#/.
+2. In Sort, choose ""Name (A - Z)"" and look at the first product.
+3. Choose ""Price (Low - High)"" and look at the first price.","""Name (A - Z)"" starts with Adjustable Wrench; ""Price (Low - High)"" starts with the cheapest product.","""Name (A - Z)"" starts with Wood Saw (Z to A). ""Price (Low - High)"" starts with Cordless Drill 20V at $125.23, the most expensive. All six options are reversed, including Name (Z - A), Price (High - Low) and both CO₂ options.","Medium","Medium","Shoppers who sort get the opposite order; the list still shows every product.","BUG-03_sort-options-reversed.webm","Open","2026-10-30"
+"BUG-05","Product page","The + and − quantity buttons do nothing","1. Open https://with-bugs.practicesoftwaretesting.com/#/product/1 (Combination Pliers).
+2. Click + twice.","The quantity shows 3.","The quantity stays at 1. The − button has no effect either.","Medium","Medium","Shoppers can't pick a quantity on the product page; they can still change it in the cart.","BUG-05_quantity-buttons-do-nothing.webm","Open","2026-10-30"
+"BUG-12","Images & text","Spelling errors in the interface","1. Open the home page #/ — look at the header and the left column.
+2. Open a product page #/product/1 — look below the product.
+3. Open the contact page #/contact — look at the message box.","Contact · Sort · Search · Related products · Message","""Contakt"" (header, every page) · ""Sorth"" (product list) · ""Serch"" (search button) · ""Reltded products"" (product page) · ""Massage"" (contact form)","Minor","Medium","Looks careless on every page; nothing stops working. Quick to fix.","BUG-12_spelling-errors_home-typos.png
+BUG-12_spelling-errors_product-typo.png
+BUG-12_spelling-errors_99-final.png","Open","2026-10-30"
+"BUG-08","Navigation","The Categories menu has an ""UNDEFINED"" entry that opens an empty page","1. Open https://with-bugs.practicesoftwaretesting.com/#/.
+2. Open Categories in the header.
+3. Click UNDEFINED.","Every menu entry names a real category and opens its products.","The entry reads ""UNDEFINED"" and opens ""Category: Undefined"" (#/category/undefined) with no products.","Medium","Medium","A visible broken entry in the main menu that leads to an empty page.","BUG-08_categories-menu-undefined-entry.webm","Open","2026-10-30"
+"BUG-04","Product list","The default $1–$100 price filter is shown but not applied","1. Open https://with-bugs.practicesoftwaretesting.com/#/ — the Price Range filter shows $1 to $100.
+2. Click Next to page 3 of the results.","Only products priced between $1 and $100 are listed while the filter shows $1–$100.","Three products above $100 are listed — Cordless Drill 20V ($125.23), Cordless Drill 18V ($119.24) and Random Orbit Sander ($100.79).","Medium","Medium","The filter shown doesn't match the list; shoppers see a few more products than expected.","BUG-04_price-filter-default-not-applied.webm","Open","2026-10-30"
+"BUG-10","Contact form","The contact form doesn't flag an invalid email address","1. Open https://with-bugs.practicesoftwaretesting.com/#/contact.
+2. Enter not-an-email as the email address and leave the other fields empty.
+3. Click Send.","An error such as ""Email format is invalid"" next to the email field.","The empty fields show errors; the email field shows none.","Medium","Medium","Matters once the form works again: mistyped addresses arrive with no way to reply.","BUG-10_contact-email-not-validated.webm","Open","2026-10-30"
+"BUG-14","Contact form","The subject list offers two error messages as subjects","1. Open https://with-bugs.practicesoftwaretesting.com/#/contact.
+2. Open the Subject list.","Only real subjects — Customer service, Webmaster, Return, Payments, Warranty, Status of my order.","Two entries read ""Error 101: Subject not found"" and ""Error 202: Translation error"".","Minor","Low","Looks broken; a visitor may pick an error as their subject.","BUG-14_contact-subject-list-shows-error-text_error-101-option.png
+BUG-14_contact-subject-list-shows-error-text_99-final.png","Open","2026-10-30"
